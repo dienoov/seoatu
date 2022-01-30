@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\API\CategoryController;
+use App\Http\Controllers\API\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +18,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::prefix('products')->group(function () {
+    Route::get('', [ProductController::class, 'all']);
+    Route::get('{product}', [ProductController::class, 'find']);
+});
+
+Route::prefix('categories')->group(function () {
+    Route::get('', [CategoryController::class, 'all']);
+    Route::get('{category}', [CategoryController::class, 'find']);
 });
