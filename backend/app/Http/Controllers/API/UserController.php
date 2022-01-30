@@ -50,4 +50,36 @@ class UserController extends Controller
             'token' => $token,
         ]);
     }
+
+    public function find(Request $request)
+    {
+        return response([
+            'user' => $request->user(),
+        ]);
+    }
+
+    public function update(Request $request)
+    {
+        $request->validate([
+            'name' => ['required', 'string'],
+        ]);
+
+        $input = \request(['name']);
+
+        $user = Auth::user();
+        $user->update($input);
+
+        return response([
+            'user' => $user,
+        ]);
+    }
+
+    public function logout(Request $request)
+    {
+        $token = $request->user()->currentAccessToken()->delete();
+
+        return response([
+            'message' => 'Successfully logged out',
+        ]);
+    }
 }

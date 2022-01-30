@@ -24,6 +24,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('auth')->group(function () {
     Route::post('register', [UserController::class, 'register']);
     Route::post('login', [UserController::class, 'login']);
+
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::get('user', [UserController::class, 'find']);
+        Route::post('user', [UserController::class, 'update']);
+        Route::post('logout', [UserController::class, 'logout']);
+    });
 });
 
 Route::prefix('products')->group(function () {
