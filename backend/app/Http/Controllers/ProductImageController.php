@@ -36,7 +36,7 @@ class ProductImageController extends Controller
     public function store(ProductImageRequest $request, $productId)
     {
         $input['product_id'] = $productId;
-        $input['url'] = $request->image->store('products');
+        $input['url'] = $request->image->store('media/products');
 
         ProductImage::create($input);
 
