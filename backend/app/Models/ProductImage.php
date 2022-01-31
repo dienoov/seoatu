@@ -16,8 +16,8 @@ class ProductImage extends Model
         'url',
     ];
 
-    public function getUrlAttribute($url)
-    {
-        return config('app.url') . Storage::url($url);
-    }
+//    public function getUrlAttribute($url)
+//    {
+//        return config('app.url') . Storage::url($url);
+//    }
 }

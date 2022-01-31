@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="pt-6 pb-12">
+    <div class="p-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-4">
                 <form action="{{ route('products.update', $product->id) }}" method="post">
@@ -57,6 +57,29 @@
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                             type="submit">Submit
                     </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="pb-12 px-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-4 flex items-center flex-wrap">
+                @foreach($product->images as $image)
+                    <img src="{{ asset($image->url) }}" alt="image" class="rounded shadow w-24 h-24 object-cover mr-2">
+                @endforeach
+                <form action="{{ route('products.images.store',$product->id) }}" method="post"
+                      enctype="multipart/form-data">
+                    @csrf
+                    <label for="image">
+                        <span
+                            class="hover:bg-blue-700 text-blue-500 hover:text-white font-bold w-24 h-24 block flex items-center justify-center text-6xl rounded cursor-pointer">+</span>
+                        <input type="file" name="image" id="image" class="text-sm text-slate-500" accept="image/*"
+                               required hidden onchange="this.form.submit()">
+                        @if($errors->has('image'))
+                            <p class="text-red-500 mt-2">{{ $errors->first('image') }}</p>
+                        @endif
+                    </label>
                 </form>
             </div>
         </div>
