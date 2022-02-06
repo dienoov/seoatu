@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:seoatu/pages/home_page.dart';
+import 'package:seoatu/pages/main_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       routes: {
-        '/': (context) => const HomePage(),
+        '/': (context) => const MainPage(),
       },
     );
   }
