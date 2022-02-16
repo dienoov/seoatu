@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 10),
       width: double.infinity,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(25),
+        borderRadius: BorderRadius.circular(30),
         color: Colors.grey[200],
       ),
       child: Column(
@@ -27,7 +27,7 @@ class HomePage extends StatelessWidget {
           Text(
             name,
             style: TextStyle(
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w600,
               fontSize: 16,
             ),
           ),
@@ -58,15 +58,15 @@ class HomePage extends StatelessWidget {
                     filled: true,
                     fillColor: Colors.grey[200],
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(50),
+                      borderRadius: BorderRadius.circular(30),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.transparent),
-                      borderRadius: BorderRadius.circular(50),
+                      borderRadius: BorderRadius.circular(30),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.transparent),
-                      borderRadius: BorderRadius.circular(50),
+                      borderRadius: BorderRadius.circular(30),
                     ),
                   ),
                 ),
@@ -75,7 +75,7 @@ class HomePage extends StatelessWidget {
                 ),
                 Text(
                   'New Arrivals',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 42),
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 42),
                 ),
                 SizedBox(
                   height: 20,
