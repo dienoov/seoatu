@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:seoatu/pages/main_page.dart';
 import 'package:seoatu/pages/message_single_page.dart';
+import 'package:seoatu/pages/product_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -66,6 +67,11 @@ class MyApp extends StatelessWidget {
           case '/message':
             return PageRouteBuilder(
               pageBuilder: (context, _, __) => MessageSinglePage(),
+              transitionsBuilder: _transitionsBuilder,
+            );
+          case '/product':
+            return PageRouteBuilder(
+              pageBuilder: (context, _, __) => ProductPage(),
               transitionsBuilder: _transitionsBuilder,
             );
         }
