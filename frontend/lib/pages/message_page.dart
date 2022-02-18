@@ -118,6 +118,7 @@ class MessagePage extends StatelessWidget {
       child: Container(
         width: double.infinity,
         child: ListView(
+          padding: EdgeInsets.only(top: 10),
           children: [
             message(
               context,
