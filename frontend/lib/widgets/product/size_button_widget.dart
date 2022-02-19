@@ -1,15 +1,25 @@
 import 'package:flutter/material.dart';
 
-class SizeButtonWidget extends StatelessWidget {
+class SizeButtonWidget extends StatefulWidget {
   const SizeButtonWidget({
     Key? key,
     this.size = '40',
+    this.index = 0,
   }) : super(key: key);
 
   final String size;
+  final int index;
+
+  @override
+  State<SizeButtonWidget> createState() => _SizeButtonWidgetState();
+}
+
+class _SizeButtonWidgetState extends State<SizeButtonWidget> {
+  bool selected = false;
 
   @override
   Widget build(BuildContext context) {
+    // debugPrint(widget.index.toString());
     return TextButton(
       onPressed: () {},
       style: ButtonStyle(
@@ -25,7 +35,7 @@ class SizeButtonWidget extends StatelessWidget {
         ),
         alignment: Alignment.center,
         child: Text(
-          size,
+          widget.size,
           style: TextStyle(
             color: Theme.of(context).colorScheme.primary,
             fontSize: 20,

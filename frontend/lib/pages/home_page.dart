@@ -9,6 +9,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: ListView(
+        physics: BouncingScrollPhysics(),
         children: [
           Container(
             margin: EdgeInsets.all(10),

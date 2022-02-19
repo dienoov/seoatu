@@ -10,6 +10,7 @@ class ListWidget extends StatelessWidget {
       child: Container(
         width: double.infinity,
         child: ListView(
+          physics: BouncingScrollPhysics(),
           padding: EdgeInsets.all(10),
           children: [
             ProductWidget(),

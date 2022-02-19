@@ -26,12 +26,99 @@ class _ProductPageState extends State<ProductPage> {
     'https://www.adidas.co.id/media/catalog/product/g/w/gw3955_tpp_ecom.jpg',
   ];
 
+  Future<void> addToCart() {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
+        // backgroundColor: Colors.grey[200],
+        content: SingleChildScrollView(
+          child: Column(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(30),
+                child: Image.network(
+                  'https://www.adidas.co.id/media/catalog/product/g/w/gw3955_sl_ecom.jpg',
+                  width: 360,
+                  height: 120,
+                  fit: BoxFit.cover,
+                  alignment: Alignment.bottomCenter,
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                'Product added to cart!',
+                style: TextStyle(fontSize: 16),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: double.infinity,
+                height: 56,
+                child: TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'View Cart',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.secondary,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  style: ButtonStyle(
+                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    )),
+                    backgroundColor: MaterialStateProperty.all(
+                      Theme.of(context).colorScheme.primary,
+                    ),
+                    overlayColor: MaterialStateProperty.all(Colors.transparent),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                width: double.infinity,
+                height: 56,
+                child: TextButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: Text(
+                    'Continue Shopping',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  style: ButtonStyle(
+                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    )),
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.grey[200],
+                    ),
+                    overlayColor: MaterialStateProperty.all(Colors.transparent),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
           ListView(
+            physics: BouncingScrollPhysics(),
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.only(
@@ -39,6 +126,7 @@ class _ProductPageState extends State<ProductPage> {
                   bottomRight: Radius.circular(30),
                 ),
                 child: Container(
+                  color: Colors.grey[200],
                   child: CarouselSlider(
                       items: images
                           .map((image) => Image.network(
@@ -101,7 +189,7 @@ class _ProductPageState extends State<ProductPage> {
                   ],
                 ),
               ),
-              BottomWidget(),
+              BottomWidget(addToCart: addToCart),
             ],
           ),
           Positioned(

@@ -11,6 +11,7 @@ class ListWidget extends StatelessWidget {
       child: Container(
         width: double.infinity,
         child: ListView(
+          physics: BouncingScrollPhysics(),
           padding: EdgeInsets.only(top: 10),
           children: [
             MessageWidget(

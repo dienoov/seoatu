@@ -1,11 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:seoatu/widgets/product/size_button_widget.dart';
 
-class SizeWidget extends StatelessWidget {
+class SizeWidget extends StatefulWidget {
   const SizeWidget({Key? key}) : super(key: key);
 
   @override
+  State<SizeWidget> createState() => _SizeWidgetState();
+}
+
+class _SizeWidgetState extends State<SizeWidget> {
+  final List sizes = ['39', '40', '41', '42', '43', '44', '45'];
+
+  final List sizeWidgets = [];
+
+  @override
   Widget build(BuildContext context) {
+    for (var i = 0; i < sizes.length; i++) {
+      setState(() {
+        sizeWidgets.add(SizeButtonWidget(size: sizes[i], index: i));
+      });
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -35,11 +50,7 @@ class SizeWidget extends StatelessWidget {
               SizedBox(
                 width: 5,
               ),
-              SizeButtonWidget(size: '40'),
-              SizeButtonWidget(size: '41'),
-              SizeButtonWidget(size: '42'),
-              SizeButtonWidget(size: '43'),
-              SizeButtonWidget(size: '44'),
+              ...sizeWidgets,
               SizedBox(
                 width: 5,
               ),

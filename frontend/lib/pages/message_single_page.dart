@@ -12,6 +12,7 @@ class MessageSinglePage extends StatelessWidget {
     return Scaffold(
       appBar: HeaderWidget(),
       body: ListView(
+        physics: BouncingScrollPhysics(),
         padding: EdgeInsets.all(10),
         children: [
           ProductBubbleWidget(),
